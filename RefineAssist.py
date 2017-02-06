@@ -129,9 +129,9 @@ sasainfo='\n'.join(sasalist)
 #This script prints out the secondary structure each amino acid belongs to using DSSP from within biopython. 
 sslist=list()
 p = PDBParser()
-structure = p.get_structure('X', '1.pdb')
+structure = p.get_structure('X', filename)
 model = structure[0]
-dssp = DSSP(model, "1.pdb")
+dssp = DSSP(model, filename)
 for x in dssp:
 	if x[2]=='G' or x[2]=='H' or x[2]=='I':
 		y='H'
