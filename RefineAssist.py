@@ -266,13 +266,13 @@ for x in aminos1:
 
 #Print the custom PYMOL commands to select the different protein layers according to each amino acid's SASA.
 print 'Surface Amino Acids Command:'
-print 'select nterm, resi','+'.join(str(z) for z in surface),'\n'
+print 'select Surf, resi','+'.join(str(z) for z in surface),'\n'
 
 print 'Boundery Amino Acids Command:'
-print 'select nterm, resi','+'.join(str(z) for z in boundery),'\n'
+print 'select Bound, resi','+'.join(str(z) for z in boundery),'\n'
 
 print 'Core Amino Acids Command:'
-print 'select nterm, resi','+'.join(str(z) for z in core),'\n'
+print 'select Core, resi','+'.join(str(z) for z in core),'\n'
 
 #Calculate which amino acids are in the wrong layer. The rules this script are from the following Rosetta LayerDesign Protocol (source: goo.gl/NsQubf) and they are as follows:
 #Surface
