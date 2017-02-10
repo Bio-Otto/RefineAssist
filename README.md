@@ -16,12 +16,20 @@ Contact the author at sari.sabban@gmail.com for any questions regarding this scr
 
 
 ## HOW TO USE:
-To use follow these steps:
+To use in python 2 follow these steps:
 
 1. Install biopython by running the following command in terminal (pip install biopython) you need pip to be installed, if you do not have it you can install it in linux by running the following command in terminal (sudo apt-get install python-pip).
 2. Install DSSP in linux by running the following command in terminal (sudo apt-get install dssp).
-3. Enter file name when prompted. File must be in the same directory as this script.
+3. Run by typeing in command line: ./RefineAssist.py
+4. Enter file name when prompted. File must be in the same directory as this script.
 
+To use in python 3 follow these steps:
+
+1. Install biopython by running the following command in terminal (python3 -m pip install biopython) you need pip to be installed, if you do not have it you can install it in linux by running the following command in terminal (sudo apt-get install python3-pip).
+2. Install DSSP in linux by running the following command in terminal (sudo apt-get install dssp).
+3. Install numpy (python3 -m pip install numpy).
+4. Run by typeing in command line: ./RefineAssist3.py
+5. Enter file name when prompted. File must be in the same directory as this script.
 
 
 ## REFERENCES:
