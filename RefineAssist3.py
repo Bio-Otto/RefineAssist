@@ -244,22 +244,19 @@ print('select Core, resi','+'.join(str(z) for z in core),'\n')
 
 #Calculate which amino acids are in the wrong layer. The rules this script are from the following Rosetta LayerDesign Protocol (source: goo.gl/NsQubf) and they are as follows:
 #Surface
-#    Loop:		DEGHKNPQRST
-#    Strand:		DEHKNQRST
-#    Helix:		DEHKNQRST (only at the beginning of helix)
-#    HelixCapping:	DNST
+#    Loop:		PGNQSTDERKH
+#    Helix:		QEKH
+#    Strand:		QTY
 #
 #Boundary
-#    Loop:		ADEFGIKLNPQRSTVWY
-#    Strand:		DEFIKLNQRSTVWY
-#    Helix:		ADEIKLNQRSTVWY (P only at the beginning of helix)
-#    HelixCapping:	DNST
+#    Loop:		AVILFYWGNQSTPDEHR
+#    Helix:		AVILWQEKFM
+#    Strand:		AVILFYWQTM
 #
 #Core:
-#    Loop:		AFILPVWY
-#    Strand:		FILVWY
-#    Helix:		AFILVWY (P only at the beginning of helix)
-#    HelixCapping:	DNST
+#    Loop:		AVILPFWM
+#    Helix:		AVILFW
+#    Strand:		AVILFWM
 d=list()
 def pairwise(iterable):
 	a, b = itertools.tee(iterable)
@@ -268,27 +265,23 @@ def pairwise(iterable):
 
 mutate=list()
 for a,(b1,b2),c in zip(SASA,(pairwise(lis)),aminos2):
-	if a=='S' and b2[0]=='L' and (c=='D' or c=='E' or c=='G' or c=='H' or c=='K' or c=='N' or c=='P' or c=='Q' or c=='R' or c=='S' or c=='T'):
+	if a=='S' and b2[0]=='L' and (c=='P' or c=='G' or c=='N' or c=='Q' or c=='S' or c=='T' or c=='D' or c=='E' or c=='R' or c=='K' or c=='H'):
 		mutate.append(' ')
-	elif a=='B' and b2[0]=='L' and (c=='A' or c=='D' or c=='E' or c=='F' or c=='G' or c=='I' or c=='K' or c=='L' or c=='N' or c=='P' or c=='Q' or c=='R' or c=='S' or c=='T' or c=='V' or c=='W' or c=='Y'):
+	elif a=='B' and b2[0]=='L' and (c=='A' or c=='V' or c=='I' or c=='L' or c=='F' or c=='Y' or c=='W' or c=='G' or c=='N' or c=='Q' or c=='S' or c=='T' or c=='P' or c=='D' or c=='E' or c=='H' or c=='R'):
 		mutate.append(' ')
-	elif a=='C' and b2[0]=='L' and (c=='A' or c=='F' or c=='I' or c=='L' or c=='P' or c=='V' or c=='W' or c=='Y'):
+	elif a=='C' and b2[0]=='L' and (c=='A' or c=='V' or c=='I' or c=='L' or c=='P' or c=='F' or c=='W' or c=='M'):
 		mutate.append(' ')
-	elif a=='S' and b2[0]=='H' and (c=='D' or c=='E' or c=='H' or c=='K' or c=='N' or c=='Q' or c=='R' or c=='S' or c=='T'):
+	elif a=='S' and b2[0]=='H' and (c=='Q' or c=='E' or c=='K' or c=='H'):
 		mutate.append(' ')
-	elif a=='B' and b2[0]=='H' and (c=='A' or c=='D' or c=='E' or c=='I' or c=='K' or c=='L' or c=='N' or c=='Q' or c=='R' or c=='S' or c=='T' or c=='V' or c=='W' or c=='Y'):
+	elif a=='B' and b2[0]=='H' and (c=='A' or c=='V' or c=='I' or c=='L' or c=='W' or c=='Q' or c=='E' or c=='K' or c=='F' or c=='M'):
 		mutate.append(' ')
-	elif a=='C' and b2[0]=='H' and (c=='A' or c=='F' or c=='I' or c=='L' or c=='V' or c=='W' or c=='Y'):
+	elif a=='C' and b2[0]=='H' and (c=='A' or c=='V' or c=='I' or c=='L' or c=='F' or c=='W'):
 		mutate.append(' ')
-	elif (a=='S' or a=='B' or a=='C') and b1[0]=='L' and b2[0]=='H' and (c=='P'):
+	elif a=='S' and b2[0]=='S' and (c=='Q' or c=='T' or c=='Y'):
 		mutate.append(' ')
-	elif (a=='S' or a=='B' or a=='C') and b1[0]=='H' and b2[0]=='L' and (c=='D' or c=='N' or c=='S' or c=='T'):
+	elif a=='B' and b2[0]=='S' and (c=='A' or c=='V' or c=='I' or c=='L' or c=='F' or c=='Y' or c=='W' or c=='Q' or c=='T' or c=='M'):
 		mutate.append(' ')
-	elif a=='S' and b2[0]=='S' and (c=='D' or c=='E' or c=='H' or c=='K' or c=='N' or c=='Q' or c=='R' or c=='S' or c=='T'):
-		mutate.append(' ')
-	elif a=='B' and b2[0]=='S' and (c=='D' or c=='E' or c=='F' or c=='I' or c=='K' or c=='L' or c=='N' or c=='Q' or c=='R' or c=='S' or c=='T' or c=='V' or c=='W' or c=='Y'):
-		mutate.append(' ')
-	elif a=='C' and b2[0]=='S' and (c=='F' or c=='I' or c=='L' or c=='V' or c=='W' or c=='Y'):
+	elif a=='C' and b2[0]=='S' and (c=='A' or c=='V' or c=='I' or c=='L' or c=='F' or c=='W' or c=='M'):
 		mutate.append(' ')
 	else:
 		mutate.append('*')
