@@ -12,10 +12,11 @@
 
 import re
 import itertools
+import sys
 from Bio.PDB import *
 
 print 'File must be in the same directory as this script.'
-filename=raw_input('Enter File Name>')
+filename=sys.argv[1]
 
 #This script calculates and prints out the SASA of each amino acid using DSSP from within biopython. 
 y=None
@@ -147,33 +148,33 @@ SASA=list()
 for x,y in lis:
 	count=count+1
 
-	if y <=25 and x=='L':
+	if y<=25 and x=='L':
 		core.append(count)
 		SASA.append('C')
 	elif 25<y<40 and x=='L':
 		boundery.append(count)
 		SASA.append('B')
-	elif y>40 and x=='L':
+	elif y>=40 and x=='L':
 		surface.append(count)
 		SASA.append('S')
 
-	elif y <=15 and x=='H':
+	elif y<=15 and x=='H':
 		core.append(count)
 		SASA.append('C')
 	elif 15<y<60 and x=='H':
 		boundery.append(count)
 		SASA.append('B')
-	elif y>60 and x=='H':
+	elif y>=60 and x=='H':
 		surface.append(count)
 		SASA.append('S')
 
-	elif y <=15 and x=='S':
+	elif y<=15 and x=='S':
 		core.append(count)
 		SASA.append('C')
 	elif 15<y<60 and x=='S':
 		boundery.append(count)
 		SASA.append('B')
-	elif y>60 and x=='S':
+	elif y>=60 and x=='S':
 		surface.append(count)
 		SASA.append('S')
 
