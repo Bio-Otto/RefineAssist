@@ -21,7 +21,9 @@ To use in python 2 follow these steps:
 1. Install biopython by running the following command in terminal (pip install biopython) you need pip to be installed, if you do not have it you can install it in linux by running the following command in terminal (sudo apt-get install python-pip).
 2. Install DSSP in linux by running the following command in terminal (sudo apt-get install dssp).
 3. Run by typeing in command line:
-`./RefineAssist.py FILENAME.pdb`
+
+`python2 RefineAssist.py FILENAME.pdb`
+
 4. File must be in the same directory as this script.
 
 To use in python 3 follow these steps:
@@ -30,7 +32,9 @@ To use in python 3 follow these steps:
 2. Install DSSP in linux by running the following command in terminal (sudo apt-get install dssp).
 3. Install numpy (python3 -m pip install numpy).
 4. Run by typeing in command line:
-`./RefineAssist3.py FILENAME.pdb`
+
+`python3 RefineAssist3.py FILENAME.pdb`
+
 5. File must be in the same directory as this script.
 
 
