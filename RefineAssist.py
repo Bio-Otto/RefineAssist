@@ -141,7 +141,7 @@ for line in data.splitlines():
 #	Helix or Sheet:	SASA=<15
 #	Loop:		SASA=<25
 core=list()
-boundery=list()
+boundary=list()
 surface=list()
 count=0
 SASA=list()
@@ -152,7 +152,7 @@ for x,y in lis:
 		core.append(count)
 		SASA.append('C')
 	elif 25<y<40 and x=='L':
-		boundery.append(count)
+		boundary.append(count)
 		SASA.append('B')
 	elif y>=40 and x=='L':
 		surface.append(count)
@@ -162,7 +162,7 @@ for x,y in lis:
 		core.append(count)
 		SASA.append('C')
 	elif 15<y<60 and x=='H':
-		boundery.append(count)
+		boundary.append(count)
 		SASA.append('B')
 	elif y>=60 and x=='H':
 		surface.append(count)
@@ -172,7 +172,7 @@ for x,y in lis:
 		core.append(count)
 		SASA.append('C')
 	elif 15<y<60 and x=='S':
-		boundery.append(count)
+		boundary.append(count)
 		SASA.append('B')
 	elif y>=60 and x=='S':
 		surface.append(count)
@@ -233,8 +233,8 @@ for x in aminos1:
 print 'Surface Amino Acids Command:'
 print 'select Surf, resi','+'.join(str(z) for z in surface),'\n'
 
-print 'Boundery Amino Acids Command:'
-print 'select Bound, resi','+'.join(str(z) for z in boundery),'\n'
+print 'Boundary Amino Acids Command:'
+print 'select Bound, resi','+'.join(str(z) for z in boundary),'\n'
 
 print 'Core Amino Acids Command:'
 print 'select Core, resi','+'.join(str(z) for z in core),'\n'
